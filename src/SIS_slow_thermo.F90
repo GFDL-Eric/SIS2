@@ -954,8 +954,8 @@ subroutine SIS2_thermodynamics(IST, dt_slow, CS, OSS, FIA, IOF, G, US, IG)
 
 !$OMP parallel do default(none) shared(isc,iec,jsc,jec,ncat,G,US,IST,S_col0,NkIce,S_col,dt_slow, &
 !$OMP                                  snow_to_ice,heat_in,I_NK,enth_prev,enth_mass_in_col,bsnk, &
-!$OMP                                  bsnk_i,bsnk_s,sisnmass_evap,simass_evap,Idt_slow, &
-!$OMP                                  salt_change,net_melt,LatHtFus,LatHtVap,IG,CS,OSS, &
+!$OMP                                  snow_to_ice_i,bsnk_i,bsnk_s,sisnmass_evap,simass_evap,Idt_slow, &
+!$OMP                                  snow_to_ice_s,salt_change,net_melt,LatHtFus,LatHtVap,IG,CS,OSS, &
 !$OMP                                  FIA,IOF,npassive,nb,salt_left_in_ocean) &
 !$OMP                          private(mass_prev,enthalpy,enthalpy_ocean,Salin,     &
 !$OMP                                  heat_to_ocn,h2o_ice_to_ocn,h2o_ocn_to_ice,   &
@@ -1109,7 +1109,7 @@ subroutine SIS2_thermodynamics(IST, dt_slow, CS, OSS, FIA, IOF, G, US, IG)
   !$OMP parallel do default(none) shared(isc,iec,jsc,jec,ncat,npassive,G,US,IG,IST,S_col0,NkIce,  &
   !$OMP                                  S_col,dt_slow,snow_to_ice,heat_in,I_NK,enth_mass_in_col, &
   !$OMP                                  enth_prev,Idt_slow,bsnk,salt_change,net_melt,LatHtFus,   &
-  !$OMP                                  FIA,CS,OSS,IOF) &
+  !$OMP                                  FIA,CS,OSS,IOF,snow_to_ice_i,snow_to_ice_s) &
   !$OMP                          private(mass_prev,enthalpy,enthalpy_ocean,Salin,heat_to_ocn,     &
   !$OMP                                  h2o_ice_to_ocn,h2o_ocn_to_ice,evap_from_ocn,salt_to_ice, &
   !$OMP                                  bablt,enth_evap,enth_ice_to_ocn,enth_ocn_to_ice,         &
